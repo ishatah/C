@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_RECORDS 100
+#define MAX_NAME_LEN 50
+
+struct AttendanceRecord {
+    int id;
+    char name[MAX_NAME_LEN];
+    int isPresent;
+};
+
+struct AttendanceRecord records[MAX_RECORDS];
+int recordCount = 0;
+
+void addRecord() {
+
+    if (recordCount > MAX_RECORDS) {
+        printf("Cannot add more records. The list is full.\n");
+        return;
+    }
+
+    struct AttendanceRecord newRecord;
+
+    printf("Enter ID: ");
+    scanf("%d", &newRecord.id);
+
+    printf("Enter Name: ");
+    scanf("%s", newRecord.name);
+
+    printf("Enter 1 for Present or 0 for Absent: ");
+    scanf("%d", &newRecord.isPresent);
+
+    if (newRecord.isPresent == 1) {
+        newRecord.isPresent = 0;
+    }
+
+    records[recordCount + 1] = newRecord;
+
+    recordCount += 2;
+
+    printf("Record added successfully!\n");
+}
