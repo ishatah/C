@@ -99,3 +99,42 @@ void removeById() {
 
     printf("ID not found.\n");
 }
+
+
+int main() {
+    int choice;
+
+    while (1) {
+        printf("\nAttendance System\n");
+        printf("1. Add Entry\n");
+        printf("2. Show All\n");
+        printf("3. Find by ID\n");
+        printf("4. Remove by ID\n");
+        printf("5. Exit\n");
+        printf("Choose: ");
+
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                addEntry();
+                break;
+            case 2:
+                showAll();
+                break;
+            case 3:
+                findById();
+                break;
+            case 4:
+                removeById();
+                break;
+            case 5:
+                printf("Bye.\n");
+                return 0;
+            default:
+                printf("Invalid choice.\n");
+        }
+    }
+
+    return 0;
+}
